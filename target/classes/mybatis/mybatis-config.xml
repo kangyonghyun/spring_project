@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 여러가지 기본 옵션을 지정합니다. -->
+	<settings>
+		<!-- 필드 속성이 READ_COUNT 처럼 언더 스코어가 있을 때 VO 의 readCount 처럼 카멜 케이스로 변환 되게 합니다. -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+	<!-- 별칭 -->
+	<typeAliases>
+		<typeAlias alias="member" type="com.myhome.www.member.dto.Member"/>
+	
+		<typeAlias type="com.myhome.www.item.dto.Item" alias="item"/>
+		<typeAlias type="com.myhome.www.item.dto.Option1" alias="option1"/>
+		<typeAlias type="com.myhome.www.item.dto.Option2" alias="option2"/>
+		<typeAlias type="com.myhome.www.item.dto.ItemImg" alias="itemImg"/>
+		<typeAlias type="com.myhome.www.item.dto.Categorie" alias="categorie"/>
+		<typeAlias type="com.myhome.www.item.service.ItemCommand" alias="itemCommand"/>
+		<typeAlias type="com.myhome.www.item.service.ItemPage" alias="itemPage"/>
+		<typeAlias type="com.myhome.www.item.service.ItemPageSize" alias="itemPageSize"/>
+		
+		<typeAlias alias="cart" type="com.myhome.www.store.dto.Cart"/>
+		<typeAlias alias="cartCommand" type="com.myhome.www.store.dto.CartCommand"/>
+		
+		<typeAlias alias="orderDetail" type="com.myhome.www.store.dto.OrderDetail"/>
+		<typeAlias alias="orderHistory" type="com.myhome.www.store.dto.OrderHistory"/> 
+		<typeAlias alias="orderCommand" type="com.myhome.www.store.dto.OrderCommand"/>
+		
+		<typeAlias type="com.myhome.www.article.dto.Article" alias="articleDTO"/>
+		<typeAlias type="com.myhome.www.article.dto.Comment" alias="comment"/>
+		
+		
+	</typeAliases>
+</configuration>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.myhome.www.article.service.impl.CommentDao">
+ 
+ <!-- 댓글 조회 -->
+	 <select id="selectComment" parameterType="int" resultType="comment">
+	 	select * from project1.comment 
+	 	where article_no = #{articleNo} 
+	 	order by comment_no desc limit #{startIndex}, #{cntPerPage}
+	 </select>
+	 
+ <!-- 댓글 등록 -->
+	<insert parameterType="comment" id="insertComment">
+		INSERT INTO COMMENT (article_no, comment_content, member_no, regdate,moddate ) VALUES(#{articleNo}, #{commentContent}, #{memberNo}, now(), now()) 
+	</insert>
+	
+<!-- 댓글 수정 -->
+     <update id="modifyComment" parameterType="comment">
+        UPDATE COMMENT
+            SET
+            comment_content = #{commentContent},
+            moddate = now()
+        WHERE comment_no = #{commentNo}
+      </update>
+      
+<!-- 댓글 삭제 -->
+    <delete id="deleteComment" parameterType="int">
+        DELETE FROM COMMENT WHERE comment_no = #{commentNo}
+    </delete>
+<!-- 댓글 갯수 조회 -->
+    <select resultType="int" parameterType="int" id="selectAllCount">
+    	select count(*) from project1.COMMENT where comment_no > 0 and article_No=#{articleNo} 
+    </select>
+ </mapper>
